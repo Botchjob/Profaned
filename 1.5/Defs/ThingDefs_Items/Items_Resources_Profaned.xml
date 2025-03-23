@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="UnfinishedBase">
+		<defName>BotchJob_UnfinishedAlchemy</defName>
+		<label>unfinished alchemy project</label>
+		<description>An unfinished alchemy project.</description>
+		<statBases>
+			<Flammability>2</Flammability>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Item/Resource/BotchJob_UnfinishedAlchemy</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<stuffCategories Inherit="false"/>
+	</ThingDef>
+
+	<!-- ==================== Butcher products =================== -->
+	<ThingDef ParentName="OrganicProductBase">
+		<defName>BotchJob_ColossusHeart</defName>
+		<label>colossal heart</label>
+		<description>The giant, putrid heart of a colossal undead creature. It pulses with necrotic energy which can be harnessed to craft powerful items.\n\nCan be preserved by freezing.</description>
+		<graphicData>
+			<texPath>Things/Item/Resource/BotchJob_ColossusHeart</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.9</drawSize>
+		</graphicData>
+		<soundDrop>Standard_Drop</soundDrop>
+		<tickerType>Normal</tickerType>
+		<stackLimit>5</stackLimit>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<MarketValue>600</MarketValue>
+			<Mass>4</Mass>
+			<Flammability>1</Flammability>
+			<DeteriorationRate>2.0</DeteriorationRate>
+		</statBases>
+		<thingCategories>
+			<li>ItemsMisc</li>
+		</thingCategories>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>5</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="OrganicProductBase">
+		<defName>BotchJob_LuminousDust</defName>
+		<label>luminous dust</label>
+		<description>Glowing residue extracted a ghostly wraith. It is ice-cold to the touch and will deteriorate rapidly if exposed to the elements.</description>
+		<graphicData>
+			<texPath>Things/Item/Resource/BotchJob_LuminousDust</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.9</drawSize>
+		</graphicData>
+		<soundDrop>Standard_Drop</soundDrop>
+		<stackLimit>20</stackLimit>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<MarketValue>75</MarketValue>
+			<Mass>1</Mass>
+			<Flammability>1</Flammability>
+			<DeteriorationRate>8</DeteriorationRate>
+		</statBases>
+		<thingCategories>
+			<li>ItemsMisc</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="OrganicProductBase">
+		<defName>BotchJob_CorruptedBlood</defName>
+		<label>vial of corrupted blood</label>
+		<description>The rancid, congealed blood of an undead creature. It can be used in crafting but can also be consumed to restore hemogen, doing so is very likely to cause food poisoning however.</description>
+		<graphicData>
+			<texPath>Things/Item/Resource/BotchJob_CorruptedBlood</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.85</drawSize>
+		</graphicData>
+		<soundDrop>Standard_Drop</soundDrop>
+		<stackLimit>25</stackLimit>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<MarketValue>50</MarketValue>
+			<Mass>1</Mass>
+			<Flammability>1</Flammability>
+			<DeteriorationRate>5</DeteriorationRate>
+			<Nutrition>0.05</Nutrition>
+			<FoodPoisonChanceFixedHuman>0.5</FoodPoisonChanceFixedHuman>
+		</statBases>
+		<ingestible>
+			<foodType>AnimalProduct, Fluid</foodType>
+			<preferability>DesperateOnly</preferability>
+			<ingestSound MayRequire="Ludeon.RimWorld.Biotech">HemogenPack_Consume</ingestSound>
+			<canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+			<outcomeDoers>
+				<li MayRequire="Ludeon.RimWorld.Biotech" Class="IngestionOutcomeDoer_OffsetHemogen">
+					<offset>0.2</offset>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<thingCategories>
+			<li>ItemsMisc</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>BotchJob_TaintedBone</defName>
+		<label>tainted bone</label>
+		<description>Fetid bones extracted from the remains of an undead creature.</description>
+		<graphicData>
+			<texPath>Things/Item/Resource/BotchJob_TaintedBone</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<soundDrop>Standard_Drop</soundDrop>
+		<stackLimit>50</stackLimit>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<statBases>
+			<MaxHitPoints>70</MaxHitPoints>
+			<MarketValue>5</MarketValue>
+			<Mass>2</Mass>
+			<Flammability>0.1</Flammability>
+			<DeteriorationRate>1</DeteriorationRate>
+		</statBases>
+		<thingCategories>
+			<li>ItemsMisc</li>
+		</thingCategories>
+	</ThingDef>
+
+	<!-- ==================== Crafted =================== -->
+	<!-- ==================== Wraith Orb =================== -->
+	<ThingDef ParentName="ResourceBase">
+		<defName>BotchJob_WraithOrb</defName>
+		<label>wraith orb</label>
+		<description>The ice-cold dust residue of a wraith, stabilised and encased in a protective orb. It faintly glows and will radiate cold for a long while, can be used for crafting.</description>
+		<graphicData>
+			<texPath>Things/Item/Resource/BotchJob_WraithOrb</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Standard_Drop</soundDrop>
+		<stackLimit>1</stackLimit>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<statBases>
+			<MarketValue>800</MarketValue>
+			<MaxHitPoints>30</MaxHitPoints>
+			<Mass>5</Mass>
+			<Flammability>0.6</Flammability>
+			<DeteriorationRate>2.0</DeteriorationRate>
+		</statBases>
+		<intricate>true</intricate>
+		<thingCategories>
+			<li>Manufactured</li>
+		</thingCategories>
+		<allowedArchonexusCount>10</allowedArchonexusCount>
+	</ThingDef>
+
+	<!-- ==================== Bloodstone =================== -->
+	<ThingDef ParentName="ResourceBase">
+		<defName>BotchJob_Bloodstone</defName>
+		<label>bloodstone</label>
+		<description>The corrupted blood of an undead creature, condensed and crystallised into a volatile bloodstone. It holds an immense amount of heat energy, which is released in the form of a searing hot, blood-red flame.</description>
+		<graphicData>
+			<texPath>Things/Item/Resource/BotchJob_Bloodstone</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Standard_Drop</soundDrop>
+		<stackLimit>1</stackLimit>
+		<tickerType>Normal</tickerType>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<statBases>
+			<MarketValue>800</MarketValue>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Mass>5</Mass>
+			<Flammability>2</Flammability>
+			<DeteriorationRate>2.0</DeteriorationRate>
+		</statBases>
+		<intricate>true</intricate>
+		<thingCategories>
+			<li>Manufactured</li>
+		</thingCategories>
+		<allowedArchonexusCount>10</allowedArchonexusCount>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<wickTicks>100</wickTicks>
+				<explosiveRadius>4</explosiveRadius>
+				<explosiveDamageType>BotchJob_BloodflameExplosion</explosiveDamageType>
+				<startWickHitPointsPercent>0.333</startWickHitPointsPercent>
+				<preExplosionSpawnThingDef>BotchJob_BloodstoneFilth</preExplosionSpawnThingDef>
+				<preExplosionSpawnChance>0.5</preExplosionSpawnChance>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!-- ==================== Soul Gem =================== -->
+	<ThingDef ParentName="ResourceBase">
+		<defName>BotchJob_SoulGem</defName>
+		<label>profane soul gem</label>
+		<description>A murky gem used by the profaned to bind the fading souls of the recently deceased.\n\nUpon close inspection, there appears to be something drifting listlessly around inside it, as if trapped.</description>
+		<graphicData>
+			<texPath>Things/Item/Resource/BotchJob_SoulGem</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Standard_Drop</soundDrop>
+		<stackLimit>10</stackLimit>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+		<statBases>
+			<MaxHitPoints>70</MaxHitPoints>
+			<MarketValue>300</MarketValue>
+			<Mass>1</Mass>
+			<Flammability>0.1</Flammability>
+			<DeteriorationRate>2.0</DeteriorationRate>
+		</statBases>
+		<tradeability>Sellable</tradeability>
+		<intricate>true</intricate>
+		<thingCategories>
+			<li>ItemsMisc</li>
+		</thingCategories>
+		<tradeTags>
+			<li>BotchJob_SoulGem</li>
+			<li>ExoticMisc</li>
+		</tradeTags>
+	</ThingDef>
+
+</Defs>
